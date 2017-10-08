@@ -1,0 +1,201 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+/* General background */
+#viewport {
+    width: 100%;
+    height: 100%;
+    background-color: #54C0CA;
+    position: relative;
+    overflow: hidden;
+}
+
+#flash {
+    width: 100%;
+    height: 100%;
+  
+    background: white;
+    opacity: 0;
+  
+    position: relative;
+    z-index: 9;
+  }
+  
+#flash.flash {
+    animation: flash 0.5s ease-in-out;
+}
+
+@keyframes flash {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+/* Menu section */
+#menu {
+    width: 190px;
+    height: 42px;
+    margin: -72px 0 0 -92px;
+    background-image: url('../assets/flappy-sprites.png');
+    background-position: -118px -229px;
+
+    top: 50%;
+    left: 50%;
+    position: absolute;
+
+    z-index: 100;
+}
+
+#start {
+    width: 80px;
+    height: 26px;
+    position: relative;
+    top: 60px;
+    left: 56px;
+
+    background-image: url('../assets/flappy-sprites.png');
+    background-position: -318px -382px;
+  }
+
+#help {
+    width: 118px;
+    height: 120px;
+    margin: 100px 0 0 40px;
+    background-image: url('../assets/flappy-sprites.png');
+    background-position: 0px -228px;
+
+    position: relative;
+  }
+
+  /* Bard */
+#bard {
+    display: none;
+
+    width: 36px;
+    height: 26px;
+  
+    position: absolute;
+    left: 50%;
+    top: 60%;
+    z-index: 10;
+  
+    margin: -13px 0 0 -18px;
+    background-image: url('../assets/flappy-sprites.png');
+    background-position: -312px -230px;
+}
+
+#bard[data-alive='true'] {
+    animation: bardwings 0.15s steps(3) infinite alternate;
+}
+  
+@keyframes bardwings {
+    from { background-position: -311px -229px; }
+    to { background-position: -311px -307px; }
+}
+
+/** Game background section **/
+.parallax-floor {
+    width: 223px;
+    height: 111px;
+    background-image: url('../assets/flappy-sprites.png');
+    background-position: -276px 0px;
+
+    position: absolute;
+    bottom: 0;
+    left: 100%;
+    z-index: 8;
+    
+    animation-name: parallax-scroll;
+    animation-duration: 46s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-delay: 0s;
+}
+
+.parallax-environment {
+    width: 275px;
+    height: 227px;
+    background-image: url('../assets/flappy-sprites.png');
+    background-position: 0px 0px;
+
+    position: absolute;
+    bottom: 0;
+    left: 100%;
+
+    animation-name: parallax-scroll;
+    animation-duration: 12s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-delay: 0s;
+}
+
+@keyframes parallax-scroll {
+    from { left: 100%; }
+    to { left: -100%; }
+  }
+
+/** Pipes **/
+
+.pipe {
+    width: 52px;
+    height: 100%;
+
+    margin-left: -26px;
+
+    position: absolute;
+    z-index: 5;
+}
+
+.pipe .top {
+    width: 100%;
+  
+    position: absolute;
+    left: 0;
+  
+    background-image: url('../assets/flappy-sprites.png');
+    background-position: -554px 0;
+    background-size: 606px 1000%;
+  }
+  
+  .pipe .top-end {
+    width: 100%;
+    height: 24px;
+  
+    position: absolute;
+    top: -124px;
+    left: 0;
+  
+    background-image: url('../assets/flappy-sprites.png');
+    background-position: -554px -376px;
+  }
+  
+  .pipe .bottom-end {
+    width: 100%;
+    height: 24px;
+  
+    position: absolute;
+    top: 100px;
+    left: 0;
+  
+    background-image: url('../assets/flappy-sprites.png');
+    background-position: -502px 0;
+  }
+  
+  .pipe .bottom {
+    width: 100%;
+    height: 100%;
+  
+    position: absolute;
+    left: 0;
+    top: 124px;
+  
+    background-image: url('../assets/flappy-sprites.png');
+    background-position: -502px -1000px;
+    background-size: 606px 1000%;
+  }
+
+
